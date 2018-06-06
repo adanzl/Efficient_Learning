@@ -1,0 +1,8 @@
+{
+  "name": "effincient_learning",
+  "app_id": "a11d60f6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
