@@ -6,13 +6,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MainApp } from './app.component';
 import { TabListPage } from '../pages/tab-list/tab-list';
+import { ExamPage } from '../pages/exam/exam';
 import { DBDataProvider } from '../providers/DBData/DBData';
 import { HttpModule } from '@angular/http';
+import { LoadingProvider } from '../providers/loading/loading';
 
 @NgModule({
   declarations: [
     MainApp,
-    TabListPage
+    TabListPage,
+    ExamPage
   ],
   imports: [
     BrowserModule,
@@ -22,13 +25,15 @@ import { HttpModule } from '@angular/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MainApp,
-    TabListPage
+    TabListPage,
+    ExamPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DBDataProvider
+    DBDataProvider,
+    LoadingProvider
   ]
 })
 export class AppModule { }

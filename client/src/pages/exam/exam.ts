@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DBDataProvider } from '../../providers/DBData/DBData';
 import { LoadingProvider } from '../../providers/loading/loading';
-import { ExamPage } from '../exam/exam';
 
 /**
- * Generated class for the HomePage page.
+ * Generated class for the ExamPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,24 +12,25 @@ import { ExamPage } from '../exam/exam';
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-exam',
+  templateUrl: 'exam.html',
 })
-export class HomePage {
+export class ExamPage {
 
-  examItems: any[] = [];
+  private _sectorReading;
+  private _examData;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dbData: DBDataProvider, public LoadUtil: LoadingProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public LoadUtil: LoadingProvider, public dbData: DBDataProvider) {
   }
 
   private Refresh() {
     this.LoadUtil.Show();
-    this.dbData.queryExamData().then(
+    this.dbData.queryExamSctorReadingData().then(
       (resp) => {
         let dataSet = resp.json();
-        this.examItems = [];
+        this._sectorReading = [];
         for (var node in dataSet) {
-          this.examItems.push(dataSet[node]);
+          this._sectorReading.push(dataSet[node]);
         }
         this.LoadUtil.Hide();
       }
@@ -38,12 +38,8 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    console.log('ionViewDidLoad ExamPage');
     this.Refresh();
-  }
-
-  examClk(examNode) {
-    this.navCtrl.push(ExamPage, examNode);
   }
 
 }
