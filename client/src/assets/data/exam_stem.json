@@ -1,0 +1,67 @@
+{
+  "1": {
+    "id": "1",
+    "stem_type": "READING",
+    "sector_id": "1",
+    "no": "21",
+    "question": "How did Redmon find his job?",
+    "answer": "C",
+    "option_a": "[A] By searching openings in a job database.",
+    "option_b": "[B] By posting a matching position in a database.",
+    "option_c": "[C] By using a special service of a database.",
+    "option_d": "[D] By E-mailing his resume to a database.",
+    "expression": ""
+  },
+  "2": {
+    "id": "2",
+    "stem_type": "READING",
+    "sector_id": "1",
+    "no": "22",
+    "question": "Which of the following can be a disadvantage of search agents?",
+    "answer": "C",
+    "option_a": "[A] Lack of counseling.",
+    "option_b": "[B] Limited number of visits.",
+    "option_c": "[C] Lower efficiency.",
+    "option_d": "[D] Fewer successful matches.",
+    "expression": ""
+  },
+  "3": {
+    "id": "3",
+    "stem_type": "READING",
+    "sector_id": "1",
+    "no": "23",
+    "question": "The expression “tip service” (Line 4, Paragraph 3) most probably means ____.",
+    "answer": "C",
+    "option_a": "[A] advisory.",
+    "option_b": "[B] compensation.",
+    "option_c": "[C] interaction.",
+    "option_d": "[D] reminder.",
+    "expression": ""
+  },
+  "4": {
+    "id": "1",
+    "stem_type": "READING",
+    "sector_id": "1",
+    "no": "24",
+    "question": "Why does CareerSite’s agent offer each job hunter only three job options?",
+    "answer": "C",
+    "option_a": "[A] To focus on better job matches.",
+    "option_b": "[B] To attract more returning visits.",
+    "option_c": "[C] To reserve space for more messages.",
+    "option_d": "[D] To increase the rate of success.",
+    "expression": ""
+  },
+  "5": {
+    "id": "1",
+    "stem_type": "READING",
+    "sector_id": "1",
+    "no": "25",
+    "question": "Which of the following is true according to the text? ",
+    "answer": "C",
+    "option_a": "[A] Personal search agents are indispensable to job-hunters.",
+    "option_b": "[B] Some sites keep E-mailing job seekers to trace their demands.",
+    "option_c": "[C] Personal search agents are also helpful to those already employed.",
+    "option_d": "[D] Some agents stop sending information to people once they are employed.",
+    "expression": ""
+  }
+}
