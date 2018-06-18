@@ -3,28 +3,33 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SQLite } from "@ionic-native/sqlite";
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { MainApp } from './app.component';
+import { TabListPage } from '../pages/tab-list/tab-list';
+import { DBDataProvider } from '../providers/DBData/DBData';
+import { SQLiteMock } from '../lib/SQLiteMock';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MainApp,
+    TabListPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MainApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MainApp,
+    TabListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: SQLite, useClass: SQLiteMock},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DBDataProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

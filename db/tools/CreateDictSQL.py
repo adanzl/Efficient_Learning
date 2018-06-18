@@ -3,18 +3,21 @@ import docx
 import os
 import re
 import sys
+import time
+import json
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 DOC_PATH = os.path.split(os.path.realpath(__file__))[0] + u"\\词库"
 PATTERN = [' ', '.', '“', '”', ',', '_', '!', ':', '–', '?', '-', '    ', ' ', '\n', '＂', '．', '(']
-OUT_FILE_NAME = '../dictData.sql'
+OUT_FILE_NAME = '../data/exam_dict.json'
 EXCLUDE_PATTERN = r"[\d\x80-\xff]+"
-SQL_TEMPLATE = 'INSERT INTO exam_dict ("word", "mean", "sentence", "add_time") VALUES ("%s", "%s", "%s", datetime());\n'
+SQL_TEMPLATE = 'INSERT INTO exam_dict ("word", "mean", "sentence", "frequency", "add_time") VALUES ("%s", "%s", "%s", "0",datetime());\n'
 zhPattern = re.compile(u'[\u2e80-\u9fff]+')
 azPattern = re.compile(u'[\u0041-\u005a\u0061-\u007a]+')
 SENTENCE_MARK = ['(', ')', '（', '）']
 f_out_file = open(OUT_FILE_NAME, 'w')
+INDEX_ID=0
 
 
 def is_chinese(uni_ch):   # 判断一个 unicode 是否是汉字。
@@ -50,7 +53,16 @@ def handleFile(fileName, result):
             sentence = data[2].strip()
         else:
             sentence = ''
-        f_out_file.write(SQL_TEMPLATE % (word, mean, sentence))
+        global INDEX_ID
+        node = result.setdefault(str(INDEX_ID), {})
+        node['id'] = INDEX_ID
+        node["word"] = word
+        node["mean"] = mean
+        node["sentence"] = sentence
+        node["frequency"] = 0
+        node["add_time"] = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(time.time()))
+        INDEX_ID += 1
+        # f_out_file.write(SQL_TEMPLATE % (word, mean, sentence))
 
 
 def fixWord(dataText):
@@ -82,6 +94,7 @@ for path, subdirs, files in os.walk(DOC_PATH):
                 fileSuffix = wordFile[(dotIndex + 1):]
                 if(fileSuffix == "docx"):
                     handleFile(wordFullName, resultDict)
+f_out_file.write(json.dumps(resultDict))
 f_out_file.close()
 # sortedDisplayDic(resultDict)
 # doc2docx(DOC_PATH, DOC_PATH)
