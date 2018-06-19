@@ -26,11 +26,11 @@ export class HomePage {
   private Refresh() {
     this.LoadUtil.Show();
     this.dbData.queryExamData().then(
-      (resp) => {
-        let dataSet = resp.json();
+      (dataSet) => {
         this.examItems = [];
-        for (var node in dataSet) {
-          this.examItems.push(dataSet[node]);
+        for (var key in dataSet) {
+          let node = dataSet[key];
+          this.examItems.push(node);
         }
         this.LoadUtil.Hide();
       }

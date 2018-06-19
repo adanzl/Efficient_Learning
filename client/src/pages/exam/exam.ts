@@ -17,20 +17,24 @@ import { LoadingProvider } from '../../providers/loading/loading';
 })
 export class ExamPage {
 
-  private _sectorReading;
+  private _sectorReadings;
   private _examData;
+  private _title: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public LoadUtil: LoadingProvider, public dbData: DBDataProvider) {
   }
 
   private Refresh() {
+    this._title = this.navParams.get('title');
     this.LoadUtil.Show();
     this.dbData.queryExamSctorReadingData().then(
-      (resp) => {
-        let dataSet = resp.json();
-        this._sectorReading = [];
-        for (var node in dataSet) {
-          this._sectorReading.push(dataSet[node]);
+      (dataSet) => {
+        this._sectorReadings = [];
+        for (var key in dataSet) {
+          let node = dataSet[key];
+          if (node['exam_id'] == this.navParams.get('id')) {
+            this._sectorReadings.push(node);
+          }
         }
         this.LoadUtil.Hide();
       }

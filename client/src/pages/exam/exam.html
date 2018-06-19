@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>exam</ion-title>
+    <ion-title>{{_title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,9 +18,16 @@
     <ion-list-header>
       <h2>Sector Reading</h2>
     </ion-list-header>
-    <ion-item class="item-thumbnail-left" *ngFor="let item of _sectorReading">
-      <h1> {{item.title}}</h1>
-      <p>{{item.article}}</p>
-    </ion-item>
+    <div class="item-thumbnail-left" *ngFor="let reading of _sectorReadings">
+      <h1>{{reading.title}}</h1>
+      <div>{{reading.article}}</div>
+      <div *ngFor="let stem of reading.exam_stems">
+        <h3>{{stem.no}}.{{stem.question}}</h3>
+        <p>{{stem.option_a}}</p>
+        <p>{{stem.option_b}}</p>
+        <p>{{stem.option_c}}</p>
+        <p>{{stem.option_d}}</p>
+      </div>
+    </div>
   </ion-list>
 </ion-content>

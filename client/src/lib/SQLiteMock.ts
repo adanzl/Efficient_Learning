@@ -23,7 +23,7 @@ export class SQLiteMock {
 
   public create(config: SQLiteDatabaseConfig): Promise<SQLiteObject> {
     const db = this.win.openDatabase(config.name, '1.0', 'Main', 5 * 1024 * 1024);
-    
+
     return new Promise((resolve, reject) => {
       resolve(new SQLiteObject(db));
     });
