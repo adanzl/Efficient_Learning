@@ -46,6 +46,15 @@ export class ExamPage {
   }
 
   onLongPress(event) {
+    console.log(event);
+
+    let popover = this.popoverCtrl.create('WordPopoverPage');
+    popover.present({
+      ev: event.from
+    });
+
+  }
+  onPress(event) {
     console.log(event.target.innerText);
 
     let word = event.target.innerText;
@@ -72,5 +81,6 @@ export class ExamPage {
       }
     ).catch(e => console.log(e));
   }
+
 
 }
