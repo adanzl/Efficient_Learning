@@ -47,40 +47,6 @@ export class ExamPage {
 
   onLongPress(event) {
     console.log(event);
-
-    let popover = this.popoverCtrl.create('WordPopoverPage');
-    popover.present({
-      ev: event.from
-    });
-
   }
-  onPress(event) {
-    console.log(event.target.innerText);
-
-    let word = event.target.innerText;
-    this.dbData.queryExamDictData().then(
-      (dataSet) => {
-        let wordNode;
-        if (dataSet.hasOwnProperty(word)) {
-          wordNode = dataSet[word];
-        } else {
-          wordNode = {
-            "word": word,
-            "sentence": "",
-            "frequency": 0,
-            "mean": "出错了，没这个单词",
-            "id": -1,
-            "add_time": ""
-          }
-        }
-
-        let popover = this.popoverCtrl.create('WordPopoverPage', wordNode);
-        popover.present({
-          ev: event
-        });
-      }
-    ).catch(e => console.log(e));
-  }
-
 
 }

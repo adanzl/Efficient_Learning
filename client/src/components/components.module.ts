@@ -7,7 +7,8 @@ import { ChipWordComponent } from './chip-word/chip-word';
     ChipWordComponent
   ],
   imports: [
-    IonicModule.forRoot(ComponentsModule)
+    // IonicModule.forRoot(ComponentsModule) 如果不改成下面这个 popoer 就无法弹出
+    IonicModule
   ],
   exports: [ChipWordComponent]
 })

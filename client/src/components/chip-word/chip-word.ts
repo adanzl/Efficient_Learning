@@ -44,6 +44,11 @@ export class ChipWordComponent {
             "add_time": ""
           }
         }
+        let popover = this.popoverCtrl.create('WordPopoverPage', wordNode);
+        popover.present({
+          ev: event
+        });
+
         this.parentPress.emit(
           {
             from: event,
