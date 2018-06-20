@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ExamPage } from './exam';
+// import { DictWordPipe } from '../../pipes/dict-word/dict-word';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,10 @@ import { ExamPage } from './exam';
   ],
   imports: [
     IonicPageModule.forChild(ExamPage),
+    // DictWordPipe,
   ],
+  exports: [
+    ExamPage,
+  ]
 })
-export class ExamPageModule {}
+export class ExamPageModule { }

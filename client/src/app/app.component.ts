@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
-import { TabListPage } from '../pages/tab-list/tab-list';
 @Component({
   templateUrl: 'app.html'
 })
 export class MainApp {
-  rootPage: any = TabListPage;
+  rootPage: any = "TabListPage";
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

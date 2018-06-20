@@ -54,7 +54,7 @@ def handleFile(fileName, result):
         else:
             sentence = ''
         global INDEX_ID
-        node = result.setdefault(str(INDEX_ID), {})
+        node = result.setdefault(str(word), {})
         node['id'] = INDEX_ID
         node["word"] = word
         node["mean"] = mean

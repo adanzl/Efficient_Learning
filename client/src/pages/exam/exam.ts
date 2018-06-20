@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, PopoverController } from 'ionic-angular';
 import { DBDataProvider } from '../../providers/DBData/DBData';
-import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the ExamPage page.
@@ -22,12 +21,12 @@ export class ExamPage {
   private _examData;
   private _title: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public LoadUtil: LoadingProvider, public dbData: DBDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbData: DBDataProvider, public popoverCtrl: PopoverController) {
   }
 
   private Refresh() {
     this._title = this.navParams.get('title');
-    this.LoadUtil.Show();
+
     this.dbData.queryExamSctorReadingData().then(
       (dataSet) => {
         this._sectorReadings = [];
@@ -37,7 +36,7 @@ export class ExamPage {
             this._sectorReadings.push(node);
           }
         }
-        this.LoadUtil.Hide();
+
       }
     ).catch(e => console.log(e));
   }
@@ -49,6 +48,30 @@ export class ExamPage {
 
   onLongPress(event) {
     console.log(event.target.innerText);
+
+    let word = event.target.innerText;
+    this.dbData.queryExamDictData().then(
+      (dataSet) => {
+        let wordNode;
+        if (dataSet.hasOwnProperty(word)) {
+          wordNode = dataSet[word];
+        } else {
+          wordNode = {
+            "word": word,
+            "sentence": "",
+            "frequency": 0,
+            "mean": "出错了，没这个单词",
+            "id": -1,
+            "add_time": ""
+          }
+        }
+
+        let popover = this.popoverCtrl.create('WordPopoverPage', wordNode);
+        popover.present({
+          ev: event
+        });
+      }
+    ).catch(e => console.log(e));
   }
 
 }
