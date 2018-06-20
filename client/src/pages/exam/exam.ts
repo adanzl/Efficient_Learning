@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { DBDataProvider } from '../../providers/DBData/DBData';
 import { LoadingProvider } from '../../providers/loading/loading';
 
@@ -17,6 +17,7 @@ import { LoadingProvider } from '../../providers/loading/loading';
 })
 export class ExamPage {
 
+  @ViewChild('artContent') artContent: Content;
   private _sectorReadings;
   private _examData;
   private _title: string;
@@ -44,6 +45,10 @@ export class ExamPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExamPage');
     this.Refresh();
+  }
+
+  onLongPress(event) {
+    console.log(event.target.innerText);
   }
 
 }

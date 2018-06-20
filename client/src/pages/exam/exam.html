@@ -13,21 +13,23 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-list>
     <ion-list-header>
       <h2>Sector Reading</h2>
     </ion-list-header>
-    <div class="item-thumbnail-left" *ngFor="let reading of _sectorReadings">
-      <h1>{{reading.title}}</h1>
-      <div>{{reading.article}}</div>
-      <div *ngFor="let stem of reading.exam_stems">
+    <div padding *ngFor="let reading of _sectorReadings">
+      <h2>{{reading.title}}</h2>
+      <div>
+        <span (press)="onLongPress($event)">helladsfads </span>{{reading.article}}
+      </div>
+      <ion-item *ngFor="let stem of reading.exam_stems">
         <h3>{{stem.no}}.{{stem.question}}</h3>
         <p>{{stem.option_a}}</p>
         <p>{{stem.option_b}}</p>
         <p>{{stem.option_c}}</p>
         <p>{{stem.option_d}}</p>
-      </div>
+      </ion-item>
     </div>
   </ion-list>
 </ion-content>
