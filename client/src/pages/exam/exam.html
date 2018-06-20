@@ -20,7 +20,7 @@
     </ion-list-header>
     <div padding *ngFor="let reading of _sectorReadings">
       <h2>{{reading.title}}</h2>
-      <div>
+      <div #artContent>
         <ion-chip class="chip_word" (press)="onLongPress($event)" [color]="primary">helladsfads </ion-chip>{{reading.article}}
       </div>
       <ion-item *ngFor="let stem of reading.exam_stems">

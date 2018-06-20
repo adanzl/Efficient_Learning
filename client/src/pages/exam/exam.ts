@@ -36,7 +36,6 @@ export class ExamPage {
             this._sectorReadings.push(node);
           }
         }
-
       }
     ).catch(e => console.log(e));
   }

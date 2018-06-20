@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform, Injectable } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 /**
  * Generated class for the DictWordPipe pipe.
@@ -15,6 +15,6 @@ export class DictWordPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: string, ...args) {
-    return value.toUpperCase();
+    return '<ion-chip class="chip_word" (press)="onLongPress($event)" [color]="primary">' + value + '</ion-chip>';
   }
 }

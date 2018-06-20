@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-// import { DictWordPipe } from './dict-word/dict-word';
+import { DictWordPipe } from './dict-word/dict-word';
 
 @NgModule({
   declarations: [
-    // DictWordPipe
+    DictWordPipe
   ],
   imports: [],
   exports: [
-    // DictWordPipe
+    DictWordPipe
   ]
 })
 export class PipesModule { }
