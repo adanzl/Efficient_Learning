@@ -42,11 +42,11 @@ export class ExamPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExamPage');
-    this.Refresh();
-  }
-
-  onLongPress(event) {
-    console.log(event);
+    this.dbData.preLoadData().then(
+      () => {
+        this.Refresh();
+      }, (e) => { console.log(e); }
+    );
   }
 
 }

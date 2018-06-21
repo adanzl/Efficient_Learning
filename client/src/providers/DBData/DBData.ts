@@ -24,6 +24,22 @@ export class DBDataProvider {
   constructor(private httpService: Http, private LoadUtil: LoadingProvider) {
   }
 
+  public preLoadData(): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.queryExamData().then(() => {
+        this.queryExamDictData().then(() => {
+          this.queryExamSctorReadingData().then(() => {
+            this.queryVersionData().then(() => {
+              console.log("Data preload finished");
+              resolve();
+            }, (e) => { reject(e); })
+          }, (e) => { reject(e); })
+        }, (e) => { reject(e); })
+      }, (e) => { reject(e); })
+    });
+  }
+
   queryExamData(): Promise<any> {
     return new Promise((resolve, reject) => {
       if (this._exam == undefined) {
@@ -46,10 +62,12 @@ export class DBDataProvider {
     return new Promise((resolve, reject) => {
       if (this._examDictData == undefined) {
         this.LoadUtil.Show();
+        console.log("queryExamDictData");
         this.httpService.request('assets/data/exam_dict.json').toPromise().then(
           (resp) => {
             this._examDictData = resp.json();
             this.LoadUtil.Hide();
+            console.log("queryExamDictData finish");
             resolve(this._examDictData);
           },
           (e) => { this.LoadUtil.Hide(); reject(e); }
@@ -64,6 +82,7 @@ export class DBDataProvider {
     return new Promise((resolve, reject) => {
       if (this._examSctorReadingData == undefined) {
         this.LoadUtil.Show();
+        console.log("queryExamSctorReadingData");
         this.httpService.request('assets/data/exam_sctor_reading.json').toPromise().then(
           (resp) => {
             this.queryExamStemData().then((ds) => {
@@ -81,6 +100,7 @@ export class DBDataProvider {
 
               this._examSctorReadingData = sctorReadingData;
               this.LoadUtil.Hide();
+              console.log("queryExamSctorReadingData finish");
               resolve(sctorReadingData);
             });
           },
@@ -92,15 +112,17 @@ export class DBDataProvider {
     });
   }
 
-  queryExamStemData(): Promise<any> {
+  private queryExamStemData(): Promise<any> {
     return new Promise((resolve, reject) => {
       if (this._examStemData == undefined) {
         this.LoadUtil.Show();
+        console.log("queryExamStemData");
         this.httpService.request('assets/data/exam_stem.json').toPromise().then(
           (resp) => {
             let dataSet = resp.json();
             this._examStemData = dataSet;
             this.LoadUtil.Hide();
+            console.log("queryExamStemData finish");
             resolve(dataSet);
           },
           (e) => { this.LoadUtil.Hide(); reject(e); }

@@ -22,7 +22,8 @@
       <h2>{{reading.title}}</h2>
       <!-- <ion-chip (press)="onPress($event)" [color]="primary">helladsfads</ion-chip> -->
       <div #artContent>
-        <chip-word word="he12121s" (longPress)="onLongPress($event)"></chip-word>{{reading.article}}
+        <!-- <chip-word word="he12121s"></chip-word> -->
+        <chip-content [(ngModel)]="reading.article"></chip-content>
       </div>
       <ion-item *ngFor="let stem of reading.exam_stems">
         <h3>{{stem.no}}.{{stem.question}}</h3>

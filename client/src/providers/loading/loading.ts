@@ -10,13 +10,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LoadingProvider {
   private loading;
-  private count;
+  private loadingIsOpen: boolean;
   constructor(private LoadCtrl: LoadingController) {
-    this.count = 0;
+    this.loadingIsOpen = false;
   }
 
   public Show() {
-    if (this.count == 0) {
+    if (!this.loadingIsOpen) {
+      this.loadingIsOpen = true;
       this.loading = this.LoadCtrl.create({
         content: "loading...",//loading框显示的内容
         dismissOnPageChange: true, // 是否在切换页面之后关闭loading框
@@ -24,15 +25,11 @@ export class LoadingProvider {
       });
       this.loading.present();// 弹出load框
     }
-    this.count += 1;
   }
 
   public Hide() {
-    this.count -= 1;
-    if (this.count <= 0) {
-      this.loading.dismiss();
-      this.count = 0;
-    }
+    this.loadingIsOpen && this.loading.dismiss();
+    this.loadingIsOpen = false;
   }
 
 }

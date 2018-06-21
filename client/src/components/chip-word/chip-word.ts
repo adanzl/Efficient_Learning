@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { PopoverController } from 'ionic-angular';
 import { DBDataProvider } from '../../providers/DBData/DBData';
 
@@ -12,13 +13,18 @@ import { DBDataProvider } from '../../providers/DBData/DBData';
   selector: 'chip-word',
   templateUrl: 'chip-word.html',
   providers: [
-    DBDataProvider,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ChipWordComponent),
+      multi: true
+    }
   ]
 })
 
-export class ChipWordComponent {
+export class ChipWordComponent implements ControlValueAccessor {
 
-  @Input('word') word: string;
+  private _word: string;
+  private _wordNode: any;
 
   @Input('color') color: string;
 
@@ -29,14 +35,28 @@ export class ChipWordComponent {
   }
 
   onLongPress(event) {
+    let popover = this.popoverCtrl.create('WordPopoverPage', this._wordNode);
+    popover.present({
+      ev: event
+    });
+
+    this.parentPress.emit(
+      {
+        from: event,
+        data: this._wordNode
+      }
+    );
+  }
+
+  private parseWord() {
     this.dbData.queryExamDictData().then(
       (dataSet) => {
         let wordNode;
-        if (dataSet.hasOwnProperty(this.word)) {
-          wordNode = dataSet[this.word];
+        if (dataSet.hasOwnProperty(this._word)) {
+          wordNode = dataSet[this._word];
         } else {
           wordNode = {
-            "word": this.word,
+            "word": this._word,
             "sentence": "",
             "frequency": 0,
             "mean": "出错了，没这个单词",
@@ -44,19 +64,22 @@ export class ChipWordComponent {
             "add_time": ""
           }
         }
-        let popover = this.popoverCtrl.create('WordPopoverPage', wordNode);
-        popover.present({
-          ev: event
-        });
-
-        this.parentPress.emit(
-          {
-            from: event,
-            data: wordNode
-          }
-        );
+        this._wordNode = wordNode;
       }
     ).catch(e => console.log(e));
   }
 
+  // ControlValueAccessor 接口
+  writeValue(val: string): void {
+    this._word = val;
+    this.parseWord();
+  }
+
+  registerOnChange(fn: any): void {
+
+  }
+
+  registerOnTouched(fn: any): void {
+
+  }
 }
