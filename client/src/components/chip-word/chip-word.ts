@@ -2,6 +2,7 @@ import { Component, forwardRef, Input, Output, EventEmitter, ChangeDetectorRef }
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { PopoverController } from 'ionic-angular';
 import { DBDataProvider } from '../../providers/DBData/DBData';
+import { UtilsProvider } from '../../providers/utils/utils';
 
 /**
  * Generated class for the ChipWordComponent component.
@@ -31,7 +32,7 @@ export class ChipWordComponent implements ControlValueAccessor {
 
   @Output('longPress') parentPress: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dbData: DBDataProvider, public popoverCtrl: PopoverController, public changeDetectorRef: ChangeDetectorRef) {
+  constructor(public dbData: DBDataProvider, public popoverCtrl: PopoverController, public changeDetectorRef: ChangeDetectorRef, public utils: UtilsProvider) {
 
   }
 
@@ -52,11 +53,14 @@ export class ChipWordComponent implements ControlValueAccessor {
   }
 
   private parseWord() {
+    if (this._word == null) {
+      return;
+    }
     this.dbData.queryExamDictData().then(
       (dataSet) => {
         let wordNode;
-        if (dataSet.hasOwnProperty(this._word)) {
-          wordNode = dataSet[this._word];
+        if (dataSet.hasOwnProperty(this._word.toLowerCase())) {
+          wordNode = dataSet[this._word.toLowerCase()];
           this._chipClass = 'chip-word';
         } else {
           wordNode = {
@@ -77,7 +81,7 @@ export class ChipWordComponent implements ControlValueAccessor {
 
   // ControlValueAccessor 接口
   writeValue(val: string): void {
-    this._word = val;
+    this._word = this.utils.trim(val);
     this.parseWord();
   }
 

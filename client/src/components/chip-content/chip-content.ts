@@ -28,7 +28,8 @@ export class ChipContentComponent implements ControlValueAccessor {
   private parseString() {
     this._wordList = [];
     if (this._content) {
-      let words = this._content.split(/[\W]+/);
+      let words = this._content.split(/(?=[\W])\s*/);
+      console.log(words);
       this._wordList = this._wordList.concat(words);
     }
   }
