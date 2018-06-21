@@ -30,7 +30,7 @@ export class UtilsProvider {
     if (str == null) {
       return str;
     }
-    return str.replace(/\n/g, '<br />');
+    return str.replace(/[^a-zA-Z0-9]+/g, '');
   }
 
 }

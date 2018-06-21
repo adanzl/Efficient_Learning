@@ -59,8 +59,9 @@ export class ChipWordComponent implements ControlValueAccessor {
     this.dbData.queryExamDictData().then(
       (dataSet) => {
         let wordNode;
-        if (dataSet.hasOwnProperty(this._word.toLowerCase())) {
-          wordNode = dataSet[this._word.toLowerCase()];
+        let word = this.utils.trimWord(this._word).toLowerCase();
+        if (dataSet.hasOwnProperty(word)) {
+          wordNode = dataSet[word];
           this._chipClass = 'chip-word';
         } else {
           wordNode = {
