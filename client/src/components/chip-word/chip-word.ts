@@ -82,6 +82,7 @@ export class ChipWordComponent implements ControlValueAccessor {
   // ControlValueAccessor 接口
   writeValue(val: string): void {
     this._word = this.utils.trim(val);
+    this._word = this.utils.buildBR(this._word);
     this.parseWord();
   }
 

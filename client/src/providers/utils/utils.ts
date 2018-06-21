@@ -19,4 +19,18 @@ export class UtilsProvider {
     return str.replace(/^\s+|\s+$/gm, '');
   }
 
+  public buildBR(str: string): string {
+    if (str == null) {
+      return str;
+    }
+    return str.replace(/\n/g, '<br />');
+  }
+
+  public trimWord(str: string): string {
+    if (str == null) {
+      return str;
+    }
+    return str.replace(/\n/g, '<br />');
+  }
+
 }
