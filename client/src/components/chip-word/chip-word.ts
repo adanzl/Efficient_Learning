@@ -25,6 +25,7 @@ export class ChipWordComponent implements ControlValueAccessor {
 
   private _word: string;
   private _wordNode: any;
+  private _chipClass: string = "chip-none";
 
   @Input('color') color: string;
 
@@ -35,17 +36,19 @@ export class ChipWordComponent implements ControlValueAccessor {
   }
 
   onLongPress(event) {
-    let popover = this.popoverCtrl.create('WordPopoverPage', this._wordNode);
-    popover.present({
-      ev: event
-    });
+    if (this._wordNode.id != -1) {
+      let popover = this.popoverCtrl.create('WordPopoverPage', this._wordNode);
+      popover.present({
+        ev: event
+      });
 
-    this.parentPress.emit(
-      {
-        from: event,
-        data: this._wordNode
-      }
-    );
+      this.parentPress.emit(
+        {
+          from: event,
+          data: this._wordNode
+        }
+      );
+    }
   }
 
   private parseWord() {
@@ -54,6 +57,7 @@ export class ChipWordComponent implements ControlValueAccessor {
         let wordNode;
         if (dataSet.hasOwnProperty(this._word)) {
           wordNode = dataSet[this._word];
+          this._chipClass = 'chip-word';
         } else {
           wordNode = {
             "word": this._word,
@@ -65,6 +69,7 @@ export class ChipWordComponent implements ControlValueAccessor {
           }
         }
         this._wordNode = wordNode;
+        this._chipClass = 'chip-none';
       }
     ).catch(e => console.log(e));
   }
