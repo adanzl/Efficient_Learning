@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, forwardRef, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 import { PopoverController } from 'ionic-angular';
 import { DBDataProvider } from '../../providers/DBData/DBData';
@@ -31,7 +31,7 @@ export class ChipWordComponent implements ControlValueAccessor {
 
   @Output('longPress') parentPress: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dbData: DBDataProvider, public popoverCtrl: PopoverController) {
+  constructor(public dbData: DBDataProvider, public popoverCtrl: PopoverController, public changeDetectorRef: ChangeDetectorRef) {
 
   }
 
@@ -67,9 +67,10 @@ export class ChipWordComponent implements ControlValueAccessor {
             "id": -1,
             "add_time": ""
           }
+          this._chipClass = 'chip-none';
         }
         this._wordNode = wordNode;
-        this._chipClass = 'chip-none';
+        // this.changeDetectorRef.markForCheck();
       }
     ).catch(e => console.log(e));
   }
