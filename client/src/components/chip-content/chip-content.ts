@@ -30,28 +30,18 @@ export class ChipContentComponent implements ControlValueAccessor {
     this._wordList = [];
     if (this._content) {
       // handle html tag <xx> first
-      let tagList = this._content.split(/(<.*?>)/);
+      let tagList = this._content.split(/(<.*?>.*?<\/.*?>|<.*?\/>)/);
       // split word
       for (let item of tagList) {
-        if (this.isChipWord(item)) {
+        if (this.utils.isDOMTag(item)) {
+          // TODO need to parse chip word for underline
+          this._wordList = this._wordList.concat(item);
+        } else {
           let words = item.split(/([^\W\s]+)/);
           this._wordList = this._wordList.concat(words);
-        } else {
-          this._wordList = this._wordList.concat(item);
         }
       }
     }
-  }
-
-  isChipWord(str: string): boolean {
-    if (str == null) {
-      return false;
-    }
-    return !new RegExp("^<").test(str);
-  }
-
-  validChip(str: string): boolean {
-    return this.utils.isEmpty(str);
   }
 
   // ControlValueAccessor interface implement

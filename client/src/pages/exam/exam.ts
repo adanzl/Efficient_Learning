@@ -17,8 +17,8 @@ export class ExamPage {
 
   private _sectorCloze: any = { "detail": [] };
   private _sectorReadings: any = { "detail": [] };
-  private _sectorTranslation: any;
-  private _sectorWriting: any;
+  private _sectorTranslation: any = { "detail": [] };
+  private _sectorWriting: any = { "detail": [] };
 
   private _examData: any;
   private _title: string;

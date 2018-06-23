@@ -13,6 +13,7 @@
 <ion-content>
   <ion-list>
     <ion-item-divider>
+      <!-- cloze -->
       <h2>{{_sectorCloze.title}}</h2>
       <p>{{_sectorCloze.Directions}}</p>
     </ion-item-divider>
@@ -30,7 +31,9 @@
       </ion-item>
     </div>
     <ion-item-divider>
-      <h2>Sector Reading</h2>
+      <!-- reading -->
+      <h2>{{_sectorReadings.title}}</h2>
+      <p>{{_sectorReadings.Directions}}</p>
     </ion-item-divider>
     <div padding *ngFor="let reading of _sectorReadings.detail">
       <h2>{{reading.title}}</h2>
@@ -44,6 +47,31 @@
         <p>{{stem.option_c}}</p>
         <p>{{stem.option_d}}</p>
       </ion-item>
+    </div>
+    <!-- translating -->
+    <ion-item-divider>
+      <h2>{{_sectorTranslation.title}}</h2>
+      <p>{{_sectorTranslation.Directions}}</p>
+    </ion-item-divider>
+    <div padding *ngFor="let translation of _sectorTranslation.detail">
+      <h2>{{translation.title}}</h2>
+      <div>
+        <chip-content [(ngModel)]="translation.article"></chip-content>
+      </div>
+      <ion-item *ngFor="let stem of translation.stems">
+        <h3>{{stem.no}}.{{stem.question}}</h3>
+      </ion-item>
+    </div>
+    <!-- writing -->
+    <ion-item-divider>
+      <h2>{{_sectorWriting.title}}</h2>
+      <p>{{_sectorWriting.Directions}}</p>
+    </ion-item-divider>
+    <div padding *ngFor="let writing of _sectorWriting.detail">
+      <h2>{{writing.no}}</h2>
+      <div>
+        <chip-content [(ngModel)]="writing.article"></chip-content>
+      </div>
     </div>
   </ion-list>
 </ion-content>
