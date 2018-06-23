@@ -7,6 +7,8 @@ import { DBDataProvider } from '../../providers/DBData/DBData';
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ *
+ * list all the exam
  */
 
 @IonicPage()
@@ -16,7 +18,7 @@ import { DBDataProvider } from '../../providers/DBData/DBData';
 })
 export class HomePage {
 
-  examItems: any[] = [];
+  private examItems: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbData: DBDataProvider) {
   }
@@ -34,10 +36,14 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.Refresh();
+    this.dbData.preLoadData().then(
+      () => {
+        this.Refresh();
+      }, (e) => { console.log(e); }
+    );
   }
 
-  examClk(examNode) {
+  onExamClk(examNode) {
     this.navCtrl.push("ExamPage", examNode);
   }
 

@@ -1,8 +1,5 @@
 <!--
-  Generated template for the ExamPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+  list exam sectors
 -->
 <ion-header>
 
@@ -15,17 +12,32 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>
+    <ion-item-divider>
+      <h2>{{_sectorCloze.title}}</h2>
+      <p>{{_sectorCloze.Directions}}</p>
+    </ion-item-divider>
+    <div padding *ngFor="let cloze of _sectorCloze.detail">
+      <h2>{{cloze.title}}</h2>
+      <div>
+        <chip-content [(ngModel)]="cloze.article"></chip-content>
+      </div>
+      <ion-item *ngFor="let stem of cloze.stems">
+        <h3>{{stem.no}}.{{stem.question}}</h3>
+        <p>{{stem.option_a}}</p>
+        <p>{{stem.option_b}}</p>
+        <p>{{stem.option_c}}</p>
+        <p>{{stem.option_d}}</p>
+      </ion-item>
+    </div>
+    <ion-item-divider>
       <h2>Sector Reading</h2>
-    </ion-list-header>
-    <div padding *ngFor="let reading of _sectorReadings">
+    </ion-item-divider>
+    <div padding *ngFor="let reading of _sectorReadings.detail">
       <h2>{{reading.title}}</h2>
-      <!-- <ion-chip (press)="onPress($event)" [color]="primary">helladsfads</ion-chip> -->
-      <div #artContent>
-        <!-- <chip-word word="he12121s"></chip-word> -->
+      <div>
         <chip-content [(ngModel)]="reading.article"></chip-content>
       </div>
-      <ion-item *ngFor="let stem of reading.exam_stems">
+      <ion-item *ngFor="let stem of reading.stems">
         <h3>{{stem.no}}.{{stem.question}}</h3>
         <p>{{stem.option_a}}</p>
         <p>{{stem.option_b}}</p>

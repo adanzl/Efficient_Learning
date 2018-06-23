@@ -1,6 +1,229 @@
 {
   "1": {
     "id": "1",
-    "title": "默认试卷"
+    "title": "1997年全真试题",
+    "sctors": [
+      {
+        "type": "CLOZE",
+        "title": "Part I Cloze Test",
+        "Directions": "Directions: For each numbered blank in the following passage, there are four choices marked ［A］, ［B］,［C］and ［D］. Choose the best one and mark your answer on ANSWER SHEET 1 byblackening the corresponding letter in the brackets. (10 points)",
+        "detail": [
+          {
+            "title": "",
+            "article": "Manpower Inc., with 560 000 workers, is the world’s largest temporary employment agency.Every morning, its people<u>  1  </u>into the offices and factories of America, seeking a day’s work for aday’s pay. One day at a time. <u>  2  </u>industrial giants like General Motors and IBM struggle to survive<u>  3  </u>reducing the number of employees, Manpower, based in Milwaukee, Wisconsin, is booming.<u>  4  </u>  its economy continues to recover, the US is increasingly becoming a nation of part- timersand temporary workers. This “<u>  5  </u>” work force is the most important<u>  6  </u>in American businesstoday, and it is<u>  7  </u>changing the relationship between people and their jobs. The phenomenonprovides a way for companies to remain globally competitive <u>  8  </u>avoiding market cycles and thegrowing burdens<u>  9  </u>by employment rules, health care costs and pension plans. For workers it canmean an end to the security, benefits and sense of<u>  10  </u>that came from being a loyal employee.",
+            "stems": [
+              {
+                "no": "1",
+                "question": "",
+                "option_a": "［A］ swarm",
+                "option_b": "［B］ stride ",
+                "option_c": "［C］ separate",
+                "option_d": "［D］ slip ",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "2",
+                "question": "",
+                "option_a": "［A］ For",
+                "option_b": "［B］ Because",
+                "option_c": "［C］ As",
+                "option_d": "［D］ Since",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "3",
+                "question": "",
+                "option_a": "［A］ from",
+                "option_b": "［B］ in",
+                "option_c": "［C］ on",
+                "option_d": "［D］ by ",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "4",
+                "question": "",
+                "option_a": "［A］ Even though",
+                "option_b": "［B］ Now that ",
+                "option_c": "［C］ If only",
+                "option_d": "［D］ Provided that",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "5",
+                "question": "",
+                "option_a": "［A］ durable",
+                "option_b": "［B］ disposable",
+                "option_c": "［C］ available",
+                "option_d": "［D］ transferable ",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "6",
+                "question": "",
+                "option_a": "［A］ approach",
+                "option_b": "［B］ flow ",
+                "option_c": "［C］ fashion",
+                "option_d": "［D］ trend ",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "7",
+                "question": "",
+                "option_a": "［A］ instantly  ",
+                "option_b": "［B］ reversely",
+                "option_c": "［C］ fundamentally",
+                "option_d": "［D］ sufficiently",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "8",
+                "question": "",
+                "option_a": "［A］ but",
+                "option_b": "［B］ while",
+                "option_c": "［C］ and",
+                "option_d": "［D］ whereas ",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "9",
+                "question": "",
+                "option_a": "［A］ imposed",
+                "option_b": "［B］ restricted",
+                "option_c": "［C］ illustrated",
+                "option_d": "［D］ confined ",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "10",
+                "question": "",
+                "option_a": "［A］ excitement",
+                "option_b": "［B］ conviction",
+                "option_c": "［C］ enthusiasm",
+                "option_d": "［D］ importance",
+                "answer": "C",
+                "expression": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "READING",
+        "title": "Part II Reading Comprehension",
+        "Directions": "Directions: Each of the passages below is followed by some questions. For each question there are four answers marked ［A］, ［B］, ［C］ and ［D］. Read the passages carefully and choose the best answer to each of the questions. Then mark your answer on ANSWER SHEET 1 by blackening the corresponding letter in the brackets. (40 points)",
+        "detail": [
+          {
+            "title": "Passage 1",
+            "article": "It was 3: 45 in the morning when the vote was finally taken. After six months of arguing and final 16 hours of hot parliamentary debates, Australia’s Northern Territory became the first legal authority in the world to allow doctors to take the lives of incurably ill patients who wish to die. The measure passed by the convincing vote of 15 to 10. Almost immediately word flashed on the Internet and was picked up, half a world away, by John Hofsess, executive director of the Right to Die Society of Canada. He sent it on via the group’s on-line service, Death NET. Says Hofsess: “We posted bulletins all day long, because of course this isn’t just something that happened in Australia. It’s world history.”<br />The full import may take a while to sink in. The NT Rights of the Terminally Ill law has left physicians and citizens alike trying to deal with its moral and practical implications. Some have breathed sighs of relief, others, including churches, right-to-life groups and the Australian Medical Association, bitterly attacked the bill and the haste of its passage. But the tide is unlikely to turn back. In Australia—where an aging population, life-extending technology and changing community attitudes have all played their part—other states are going to consider making a similar law to deal with euthanasia. In the US and Canada, where the right-to-die movement is gathering strength, observers are waiting for the dominoes to start falling.<br />Under the new Northern Territory law, an adult patient can request death—probably by a deadly injection or pill—to put an end to suffering. The patient must be diagnosed as terminally ill by two doctors. After a “cooling off” period of seven days, the patient can sign a certificate of request. After 48 hours the wish for death can be met. For Lloyd Nickson, a 54-year-old Darwin resident suffering from lung cancer, the NT Rights of Terminally Ill law means he can get on with living without the haunting fear of his suffering: a terrifying death from his breathing condition. “I’m not afraid of dying from a spiritual point of view, but what I was afraid of was how I’d go, because I’ve watched people die in the hospital fighting for oxygen and clawing at their masks, ” he says.<br />",
+            "stems": [
+              {
+                "no": "11",
+                "question": "From the second paragraph we learn that_____",
+                "option_a": "［A］ the objection to euthanasia is slow to come in other countries",
+                "option_b": "［B］ physicians and citizens share the same view on euthanasia",
+                "option_c": "［C］ changing technology is chiefly responsible for the hasty passage of the law",
+                "option_d": "［D］ it takes time to realize the significance of the law’s passage",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "12",
+                "question": "When the author says that observers are waiting for the dominoes to start falling, he means______.",
+                "option_a": "［A］ observers are taking a wait-and-see attitude towards the future of euthanasia",
+                "option_b": "［B］ similar bills are likely to be passed in the US, Canada and other countries",
+                "option_c": "［C］ observers are waiting to see the result of the game of dominoes",
+                "option_d": "［D］ the effect-taking process of the passed bill may finally come to a stop",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "13",
+                "question": "When Lloyd Nickson dies, he will______.",
+                "option_a": "［A］ face his death with calm characteristic of euthanasia",
+                "option_b": "［B］ experience the suffering of a lung cancer patient",
+                "option_c": "［C］ have an intense fear of terrible suffering",
+                "option_d": "［D］ undergo a cooling off period of seven days",
+                "answer": "C",
+                "expression": ""
+              },
+              {
+                "no": "14",
+                "question": "The author’s attitude towards euthanasia seems to be that of______.",
+                "option_a": "［A］ opposition",
+                "option_b": "［B］ suspicion",
+                "option_c": "［C］ approval",
+                "option_d": "［D］ indifference",
+                "answer": "C",
+                "expression": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TRANSLATION",
+        "title": "Part III English-Chinese Translation",
+        "Directions": "Directions: Read the following passage carefully and then translate the underlined segments into Chinese. Your translation must be written clearly on ANSWER SHEET 2. (15 points)",
+        "detail": [
+          {
+            "title": "",
+            "article": "Do animals have rights? This is how the question is usually put. It sounds like a useful, ground-clearing way to start. 31<u>Actually, it isn’t, because it assumes that there is an agreed account of human rights, which is something the world does not have.</u><br />On one view of rights, to be sure, it necessarily follows that animals have none.32）<u>Some philosophers argue that rights exist only within a social contract, as part of an exchange of duties and entitlements. </u>Therefore animals cannot have rights. The idea of punishing a tiger that kills somebody is absurd, for exactly the same reason, so is the idea that tigers have rights. However, this is only one account, and by no means an uncontested one. It denies rights not only to animals but also to some people—for instance, to infants, the mentally incapable and future generations. In addition, it is unclear what force a contract can have for people who never consented to it: how do you reply to somebody who says “ I don’t like this contract”?<br />The point is this: without agreement on the rights of people, arguing about the rights of animals is fruitless.33）<u>It leads the discussion to extremes at the outset: it invites you to think that animals should be treated either with the consideration humans extend to other humans, or with no consideration at all. </u>This is a false choice. Better to start with another, more fundamental, question: is the way we treat animals a moral issue at all?<br />Many deny it.34）<u>Arguing from the view that humans are different from animals in every relevant respect, extremists of this kind think that animals lie outside the area of moral choice.</u> Any regard for the suffering of animals is seen as a mistake—a sentimental displacement of feeling that should properly be directed to other humans. <br />This view, which holds that torturing a monkey is morally equivalent to chopping wood, may seem bravely “logical”. In fact it is simply shallow: the confused centre is right to reject it. The most elementary form of moral reasoning—the ethical equivalent of learning to crawl—is to weigh other’s interests against one’s own. This in turn requires sympathy and imagination: without which there is no capacity for moral thought. To see an animal in pain is enough, for most, to engage sympathy.35）<u>When that happens, it is not a mistake: it is mankind’s instinct for moral reasoning in action, an instinct that should be encouraged rather than laughed at.</u>",
+            "stems": [
+              {
+                "no": "31",
+                "question": "",
+                "answer": "____",
+                "expression": ""
+              },
+              {
+                "no": "32",
+                "question": "",
+                "answer": "____",
+                "expression": ""
+              },
+              {
+                "no": "33",
+                "question": "",
+                "answer": "____",
+                "expression": ""
+              },
+              {
+                "no": "34",
+                "question": "",
+                "answer": "____",
+                "expression": ""
+              },
+              {
+                "no": "35",
+                "question": "",
+                "answer": "____",
+                "expression": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "WRITING",
+        "title": "Section Ⅳ Writing(15 points)",
+        "Directions": "Directions: A. Study the following set of pictures carefully and write an essay in no less than 120 words.<br />B. Your essay must be written clearly on ANSWER SHEET 2.<br />C. Your essay should cover all the information provided and meet the requirements below:<br />",
+        "detail": [
+          {
+            "no": "36",
+            "article": "1. Interpret the following pictures.<br />2. Predict the tendency of tobacco consumption and give your reasons.",
+            "expression": ""
+          }
+        ]
+      }
+    ]
   }
 }
