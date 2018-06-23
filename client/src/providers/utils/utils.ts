@@ -12,6 +12,19 @@ export class UtilsProvider {
   constructor() {
   }
 
+  public isEmpty(str: string): boolean {
+    if (str == null)
+      return true;
+    return str.replace(/(^\s*)|(\s*$)/g, "").length == 0;
+  }
+
+  public isDOMTag(str: string): boolean {
+    if (str == null) {
+      return false;
+    }
+    return new RegExp("^<").test(str);
+  }
+
   public trim(str: string): string {
     if (str == null) {
       return str;

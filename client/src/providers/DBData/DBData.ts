@@ -20,36 +20,36 @@ export class DBDataProvider {
   constructor(private httpService: Http, private LoadUtil: LoadingProvider) {
   }
 
-  public preLoadData(forcePreload: boolean = false): Promise<any> {
+  public preLoadData(force: boolean = false): Promise<any> {
 
     return new Promise((resolve, reject) => {
-      if (this._preLoaded && !forcePreload) {
+      if (this._preLoaded && !force) {
         resolve();
         return;
       }
+      this.LoadUtil.Show();
       this.queryExamData().then(() => {
         this.queryExamDictData().then(() => {
           this.queryVersionData().then(() => {
             console.log("Data preload finished");
             this._preLoaded = true;
+            this.LoadUtil.Hide();
             resolve();
-          }, (e) => { reject(e); })
-        }, (e) => { reject(e); })
-      }, (e) => { reject(e); })
+          }, (e) => { this.LoadUtil.Hide(); reject(e); })
+        }, (e) => { this.LoadUtil.Hide(); reject(e); })
+      }, (e) => { this.LoadUtil.Hide(); reject(e); })
     });
   }
 
-  queryExamData(): Promise<any> {
+  queryExamData(force: boolean = false): Promise<any> {
     return new Promise((resolve, reject) => {
-      if (this._exam == undefined) {
-        this.LoadUtil.Show();
+      if (this._exam == undefined || force) {
         this.httpService.request('assets/data/exam.json').toPromise().then(
           (resp) => {
             this._exam = resp.json();
-            this.LoadUtil.Hide();
             resolve(this._exam);
           },
-          (e) => { this.LoadUtil.Hide(); reject(e); }
+          (e) => { reject(e); }
         );
       } else {
         resolve(this._exam);
@@ -57,17 +57,15 @@ export class DBDataProvider {
     });
   }
 
-  queryExamDictData(): Promise<any> {
+  queryExamDictData(force: boolean = false): Promise<any> {
     return new Promise((resolve, reject) => {
-      if (this._examDictData == undefined) {
-        this.LoadUtil.Show();
+      if (this._examDictData == undefined || force) {
         this.httpService.request('assets/data/exam_dict.json').toPromise().then(
           (resp) => {
             this._examDictData = resp.json();
-            this.LoadUtil.Hide();
             resolve(this._examDictData);
           },
-          (e) => { this.LoadUtil.Hide(); reject(e); }
+          (e) => { reject(e); }
         );
       } else {
         resolve(this._examDictData);
@@ -75,17 +73,15 @@ export class DBDataProvider {
     });
   }
 
-  queryVersionData(): Promise<any> {
+  queryVersionData(force: boolean = false): Promise<any> {
     return new Promise((resolve, reject) => {
-      if (this._versionData == undefined) {
-        this.LoadUtil.Show();
+      if (this._versionData == undefined || force) {
         this.httpService.request('assets/data/version.json').toPromise().then(
           (resp) => {
             this._versionData = resp.json();
-            this.LoadUtil.Hide();
             resolve(this._versionData);
           },
-          (e) => { this.LoadUtil.Hide(); reject(e); }
+          (e) => { reject(e); }
         );
       } else {
         resolve(this._versionData);
