@@ -17,7 +17,11 @@ import { UtilsProvider } from '../providers/utils/utils';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MainApp)
+    IonicModule.forRoot(MainApp, {
+      backButtonText: '返回',
+      iconMode: 'ios', // 安卓icon强制使用ios的icon以及样式
+      mode: 'ios', // 样式强制使用ios样式
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
