@@ -6,7 +6,7 @@
       {
         "type": "CLOZE",
         "title": "Part I Cloze Test",
-        "Directions": "Directions: For each numbered blank in the following passage, there are four choices marked ［A］, ［B］,［C］and ［D］. Choose the best one and mark your answer on ANSWER SHEET 1 byblackening the corresponding letter in the brackets. (10 points)",
+        "Directions": "<b>Directions:</b> For each numbered blank in the following passage, there are four choices marked ［A］, ［B］,［C］and ［D］. Choose the best one and mark your answer on ANSWER SHEET 1 byblackening the corresponding letter in the brackets. (10 points)",
         "detail": [
           {
             "title": "",
@@ -119,7 +119,7 @@
       {
         "type": "READING",
         "title": "Part II Reading Comprehension",
-        "Directions": "Directions: Each of the passages below is followed by some questions. For each question there are four answers marked ［A］, ［B］, ［C］ and ［D］. Read the passages carefully and choose the best answer to each of the questions. Then mark your answer on ANSWER SHEET 1 by blackening the corresponding letter in the brackets. (40 points)",
+        "Directions": "<b>Directions:</b> Each of the passages below is followed by some questions. For each question there are four answers marked ［A］, ［B］, ［C］ and ［D］. Read the passages carefully and choose the best answer to each of the questions. Then mark your answer on ANSWER SHEET 1 by blackening the corresponding letter in the brackets. (40 points)",
         "detail": [
           {
             "title": "Passage 1",
@@ -172,7 +172,7 @@
       {
         "type": "TRANSLATION",
         "title": "Part III English-Chinese Translation",
-        "Directions": "Directions: Read the following passage carefully and then translate the underlined segments into Chinese. Your translation must be written clearly on ANSWER SHEET 2. (15 points)",
+        "Directions": "<b>Directions:</b> Read the following passage carefully and then translate the underlined segments into Chinese. Your translation must be written clearly on ANSWER SHEET 2. (15 points)",
         "detail": [
           {
             "title": "",
@@ -215,7 +215,7 @@
       {
         "type": "WRITING",
         "title": "Section Ⅳ Writing(15 points)",
-        "Directions": "Directions: A. Study the following set of pictures carefully and write an essay in no less than 120 words.<br />B. Your essay must be written clearly on ANSWER SHEET 2.<br />C. Your essay should cover all the information provided and meet the requirements below:<br />",
+        "Directions": "<b>Directions:</b> A. Study the following set of pictures carefully and write an essay in no less than 120 words.<br />B. Your essay must be written clearly on ANSWER SHEET 2.<br />C. Your essay should cover all the information provided and meet the requirements below:<br />",
         "detail": [
           {
             "no": "36",
